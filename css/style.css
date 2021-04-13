@@ -1,0 +1,11 @@
+@font-face {
+	font-family: myfont;
+	src: url(../font/YouSheBiaoTiHei.ttf) format("truetype");
+	font-weight: 400;
+	font-display: "auto";
+	font-style: normal
+}
+* {
+	margin: 0;
+	padding: 0;
+}

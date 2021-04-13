@@ -1,0 +1,216 @@
+.cover {
+	width: 3840px;
+	height: 2160px;
+	background: url(../img/bgleft.png) no-repeat left center,url(../img/bgright.png) no-repeat right center,url(../img/bgdown.png) no-repeat bottom center,url(../img/bg.png) no-repeat;
+	background-size: contain;
+	position: relative;
+}
+.bg{
+	background: rgba(0,0,0,0.2);
+}
+.changeImg{
+	position: absolute;
+	top: 80px;
+	right: 100px;
+	cursor: pointer;
+}
+.changeImg:hover{
+	opacity: 0.8;
+}
+.header {
+	height: 180px;
+}
+
+.headerContent {
+	width: 1750px;
+	height: 180px;
+	margin: 0 auto;
+	font-size: 72px;
+	font-family: myfont;
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 160px;
+	text-shadow: 7px 19px 10px rgba(0, 216, 255, 0.1);
+	text-align: center;
+	background: url(../img/headerbottom.png) no-repeat bottom, url(../img/headerleft.png) no-repeat left, url(../img/headerright.png) no-repeat right;
+}
+
+.content {
+	height: 1980px;
+	display: flex;
+	flex-direction: row;
+}
+
+.left {
+	width: 1035px;
+	height: 1980px;
+	margin-right: 20px;
+	padding: 0 0 0 100px;
+	box-sizing: border-box;
+}
+
+.center {
+	width: 1685px;
+	margin-right: 20px;
+}
+
+.right {
+	width: 1029px;
+}
+
+.flexC {
+	display: flex;
+	flex-direction: column;
+}
+.myTitle {
+	height: 100px;
+	font-family: myfont;
+	font-size: 60px;
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 100px;
+	padding-left: 113px;
+	background: url(../img/titleBg.png) no-repeat left center;
+}
+
+.myContent {
+	flex: 1;
+	padding: 30px;
+	box-sizing: border-box;
+}
+
+.flexR {
+	display: flex;
+	flex-direction: row;
+}
+
+.one>div {
+	flex: 1;
+}
+
+.oneTitle {
+	height: 111px;
+	font-size: 30px;
+	font-family: PingFang SC;
+	font-weight: 600;
+	color: #FFFFFF;
+	line-height: 111px;
+	text-align: center;
+}
+
+.oneList {
+	height: 150px;
+	font-size: 24px;
+	font-family: "微软雅黑";
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 150px;
+	padding-left: 50px;
+	box-sizing: border-box;
+	background: url(../img/listIcon.png) no-repeat 30px center;
+	display: flex;
+	flex-direction: row;
+}
+
+.oneClass {
+	font-size: 42px;
+	font-family: myfont;
+	font-weight: 400;
+	color: #ABE6FF;
+	line-height: 150px;
+	float: right;
+	flex: 1;
+	text-align: center;
+}
+
+.leftCenter {
+	margin-top: 20px;
+	height: 799px;
+}
+
+.leftBottom {
+	height: 393px;
+	margin-top: 20px;
+	padding-left: 30px;
+	box-sizing: border-box;
+}
+
+.smt {
+	font-size: 40px;
+	font-family: "微软雅黑";
+	font-weight: 500;
+	color: #FFFFFF;
+	line-height: 100px;
+}
+
+.smc {
+	font-size: 30px;
+	font-family: "宋体";
+	font-weight: 500;
+	color: #FFFFFF;
+	line-height: 50px;
+}
+
+.qianhou {
+	height: 370px;
+	padding: 60px 0 0 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+}
+
+.qianhou>div {
+	flex: 1;
+	padding-left: 180px;
+	box-sizing: border-box;
+}
+
+.tone {
+	height: 108px;
+	font-size: 30px;
+	font-family: "微软雅黑";
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 108px;
+}
+
+.ttwo {
+	font-size: 42px;
+	font-family: myfont;
+	font-weight: 400;
+	color: #00B4FF;
+	line-height: 100px;
+}
+
+.qian {
+	background: url(../img/qian.png) no-repeat 50px center;
+}
+
+.hou {
+	background: url(../img/hou.png) no-repeat 50px center;
+}
+.line{
+	margin-top: 20px;
+	height: 869px;
+}
+.barTwo{
+	margin-top: 20px;
+	height: 633px;
+}
+.tablea{
+	margin-top: 100px;
+	width: 979px;
+	height: 1752px;
+	text-align: center;
+	color: #FFFFFF;
+	border: 2px solid #00B4FF;
+	font-size: 20px;
+	margin: 0 auto;
+}
+.tablea td{
+	border: 1px solid #0073A3;
+}
+.tablea .ho:hover{
+	font-weight: bold;
+	background: rgba(255,255,255,0.1);
+}

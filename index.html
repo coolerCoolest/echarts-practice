@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>常山县乡村振兴电力幸福指数</title>
+	<script src="data/pageData.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/plugins/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/plugins/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/plugins/echarts.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/plugins/echarts-liquidfill.min.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+<div id="rrapp">
+	<div class="cover">
+		<img class="changeImg" @click="jump" src="img/change.png" />
+		<div class="header">
+			<div class="headerContent">常山县乡村振兴电力幸福指数</div>
+		</div>
+		<div class="top">
+			<div class="box1">
+				<div class="leftTop flexC">
+					<div class="myTitle">乡村用电关键指标</div>
+				</div>
+				<div class="leftBottom">
+					<div>
+						<div class="leftBottomBogBox">
+							<div class="leftBottomTitle bg1">乡村供电可靠性</div>
+							<div class="leftBottomContent color1">{{data1.kk}}%</div>
+						</div>
+						<div class="leftBottomBogBox">
+							<div class="leftBottomTitle bg2">乡村户均容量</div>
+							<div class="leftBottomContent color2">{{data1.rl}}kVA</div>
+						</div>
+						<div class="leftBottomBogBox">
+							<div class="leftBottomTitle bg3">乡村停电时户数</div>
+							<div class="leftBottomContent color3">{{data1.td}}时户数</div>
+						</div>
+						<div class="leftBottomBogBox">
+							<div class="leftBottomTitle bg4">乡村故障停电修复时长</div>
+							<div class="leftBottomContent color4">{{data1.gz}}分钟</div>
+						</div>
+					</div>
+					<div id="map" style="height: 870px;width: 600px;"></div>
+					<div class="mapTime" @click="showBox">{{year}}<div class="nabla"></div></div>
+					<div class="showBox" v-show="isShowBox">
+						<div @click="clickBox(2020)">2020年度</div>
+						<div @click="clickBox(2019)">2019年度</div>
+						<div @click="clickBox(2018)">2018年度</div>
+						<div @click="clickBox(2017)">2017年度</div>
+						<div @click="clickBox(2016)">2016年度</div>
+					</div>
+				</div>
+			</div>
+			<div class="box2">
+				<div class="box2Top" style="padding-top: 20px;box-sizing: border-box;">
+					<div class="commitTitle">电力助力乡村振兴情况</div>
+					<div class="box2TopCon" style="margin-top: 60px;">
+						<img src="img/img5.png" alt="" width="80" height="80">
+						<div class="box2TopConText">
+							<p>近五年供电抢修时长年均缩短<span>36.6</span>分钟</p>
+							<p>近五年乡村电气化改造年均新增替代电量<span>554.25</span>万kWh</p>
+						</div>
+					</div>
+					<div class="box2TopCon" style="margin-top: 60px;">
+						<img src="img/img6.png" alt="" width="80" height="80">
+						<div class="box2TopConText">
+							<p>近五年乡村光伏发电容量提升年均提升<span>21.96</span>kWh,</p>
+							<p>发电用户数量年均增长<span>940</span>户</p>
+						</div>
+					</div>
+				</div>
+				<div class="box2Bottom">
+					<div class="commitTitle">电气化改造替代电量</div>
+					<div id="lineOne" style="width: 780px;height: 450px;"></div>
+				</div>
+			</div>
+			<div class="box3">
+				<div class="box2Top" style="padding-top: 20px;box-sizing: border-box;">
+					<div class="commitTitle">供电抢修效率提升</div>
+					<div id="lineTwo" style="width: 770px;height: 470px;"></div>
+				</div>
+				<div class="box2Bottom">
+					<div class="commitTitle">光伏发电情况</div>
+					<div id="barOne" style="width: 770px;height: 456px;"></div>
+				</div>
+			</div>
+			<div class="box4" style="padding-top: 20px;box-sizing: border-box;">
+				<div class="commitTitle">供电保障稳定</div>
+				<div id="pieOne" style="width: 1028px;height: 480px;"></div>
+				<div id="pieTwo" style="width: 1028px;height: 480px;"></div>
+			</div>
+		</div>
+		<div class="bottomBox1">电力数据服务</div>
+		<div class="bottom">
+			<div class="bottomBox2">
+				<div class="commitTitle" style="margin-left: 610px;">住房空置率</div>
+				<div id="barTwo" style="width: 940px;height: 500px;float:left;"></div>
+				<div id="shuiQiu" style="width: 473px;height: 500px;float:left;"></div>
+			</div>
+			<div class="bottomBox3">
+				<div class="commitTitle" style="margin-left: 350px;">乡村企业分析</div>
+				<div class="bottomBox3Text">
+					<div class="bottomBox3TextN">
+						<div style="font-size: 18px;font-family: PingFang SC,serif;font-weight: 400;color: #FFFFFF;">户号</div>
+						<div v-for="(item, index) in pageTwo.qiye" :class="textIndex == index ? 'yellow' : ''" @click="clickText(index)">
+							{{item.code}}
+						</div>
+					</div>
+					<div class="bottomBox3TextT">
+						<div style="font-size: 18px;font-family: PingFang SC,serif;font-weight: 400;color: #FFFFFF;">企业名称</div>
+						<div v-for="(item, index) in pageTwo.qiye" :class="textIndex == index ? 'yellow' : ''" @click="clickText(index)">
+							{{item.name}}
+						</div>
+					</div>
+				</div>
+				<div id="barThree" style="width: 530px;height: 612px;float:left;"></div>
+			</div>
+			<div class="bottomBox4">
+				<div class="commitTitle" style="margin-left: 450px;">乡村企业景气指数</div>
+				<div id="barFour" style="width: 1206px;height: 612px;float:left;"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

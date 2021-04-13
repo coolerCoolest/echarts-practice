@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>常山县乡村振兴电力幸福指数</title>
+		<script src="js/plugins/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/plugins/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/plugins/echarts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="data/pageData.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/pageOne.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div id="rrapp">
+			<div class="cover">
+				<img class="changeImg" @click="jump" src="img/change.png" />
+				<div class="header">
+					<div class="headerContent">常山县乡村振兴电力幸福指数</div>
+				</div>
+				<div class="content">
+					<div class="left">
+						<div class="leftTop flexC">
+							<div class="myTitle">EHI指数情况</div>
+							<div class="myContent flexR one" style="height: 582px;margin-top: 20px;padding: 0;">
+								<div class="bg">
+									<div class="oneTitle">EHI</div>
+									<div class="oneList" v-for="item in ehi.ehi">{{item.name}}<span class="oneClass">{{item.value}}</span></div>
+								</div>
+								<div class="bg">
+									<div class="oneTitle">用户数(户)</div>
+									<div class="oneList" v-for="item in ehi.yhs">{{item.name}}<span class="oneClass">{{item.value}}</span></div>
+								</div>
+								<div class="bg">
+									<div class="oneTitle">户均用电量(kWh)</div>
+									<div class="oneList" v-for="item in ehi.hjydl">{{item.name}}<span class="oneClass">{{item.value}}</span></div>
+								</div>
+							</div>
+						</div>
+						<div class="leftCenter" id="barOne"></div>
+						<div class="leftBottom bg">
+							<p class="smt">计算说明</p>
+							<p class="smc">&nbsp;&nbsp;{{texta}}</p>
+						</div>
+					</div>
+					<div class="center">
+						<div class="qianhou bg">
+							<div class="qian">
+								<p class="tone">EHI指数排名靠前乡村</p>
+								<p class="ttwo">{{textQian}}</p>
+							</div>
+							<div class="hou">
+								<p class="tone">EHI指数排名靠后</p>
+								<p class="ttwo">{{textHou}}</p>
+							</div>
+						</div>
+						<div class="line" id="line"></div>
+						<div class="barTwo" id="barTwo"></div>
+					</div>
+					<div class="right">
+						<div class="rightContent flexC">
+							<div class="myTitle">各乡村EHI指数清单</div>
+							<div class="myContent bg">
+								<table class="tablea" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td>村名</td>
+										<td>2016年</td>
+										<td>2017年</td>
+										<td>2018年</td>
+										<td>2019年</td>
+										<td>2020年</td>
+									</tr>
+									<tr class="ho" v-for="item in tableData">
+										<td>{{item.name}}</td>
+										<td>{{item.va}}</td>
+										<td>{{item.vb}}</td>
+										<td>{{item.vc}}</td>
+										<td>{{item.vd}}</td>
+										<td>{{item.ve}}</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/pageOne.js" type="text/javascript" charset="utf-8"></script>
+</html>
